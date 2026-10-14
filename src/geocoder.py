@@ -13,10 +13,13 @@ def geocode_address(address: str, api_key: str) -> dict:
                "format": "json",
                "lang": "ru_RU",
                "results": 1,}
+    headers={"User-Agent": "tyumen-geocoder/1.0",
+            "Accept": "application/json"}
 
     response = requests.get(
         BASE_URL,
         params=params,
+        headers=headers,
         timeout=(5, 15),
     )
 
